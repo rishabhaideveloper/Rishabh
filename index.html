@@ -143,6 +143,32 @@
       nav { flex-direction: column; }
       nav a { margin: 10px 0; }
     }
+    .code-container {
+  position: relative;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin-top: 40px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+}
+
+.copy-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #00ffcc;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.copy-button:active {
+  background: #00ccaa;
+}
   </style>
 </head>
 <body>
@@ -191,7 +217,67 @@
       </div>
     </div>
   </section>
+</section<section id="script">
+  <h2>Termux Theme Script</h2>
+  <div class="code-container">
+    <button class="copy-button" onclick="copyCode()">Copy</button>
+    <pre id="termux-script">#!/bin/bash
 
+apply_theme() {
+  cat > ~/.termux/colors.properties << EOL
+background=$1
+foreground=$2
+color0=$3
+color1=$4
+color2=$5
+color3=$6
+color4=$7
+color5=$8
+color6=$9
+color7=${10}
+color8=${11}
+color9=${12}
+color10=${13}
+color11=${14}
+color12=${15}
+color13=${16}
+color14=${17}
+color15=${18}
+EOL
+  termux-reload-settings
+  echo -e "\n\033[1;32m[$19 Theme Applied Successfully]\033[0m"
+}
+
+echo -e "\nSelect a Theme:"
+echo "1) Pink"
+echo "2) Blue"
+echo "3) Green"
+echo "4) Red"
+echo "5) Dark"
+read -p "Enter choice [1-5]: " ch
+
+case $ch in
+  1)
+    apply_theme "#000000" "#ff69b4" "#1c1c1c" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ffffff" "#4d4d4d" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ff69b4" "#ffffff" "Pink"
+    ;;
+  2)
+    apply_theme "#000000" "#00ccff" "#1c1c1c" "#007acc" "#00ccff" "#007acc" "#0099ff" "#33ccff" "#66d9ff" "#ffffff" "#003344" "#0099ff" "#33ccff" "#66d9ff" "#3399ff" "#33ccff" "#00ccff" "#ffffff" "Blue"
+    ;;
+  3)
+    apply_theme "#000000" "#00ff66" "#1c1c1c" "#00cc66" "#00ff66" "#00ff99" "#00cc99" "#00ff66" "#00ffcc" "#ffffff" "#006633" "#00cc66" "#00ff66" "#00ffcc" "#33ff99" "#33ff66" "#00ff66" "#ffffff" "Green"
+    ;;
+  4)
+    apply_theme "#000000" "#ff4444" "#1c1c1c" "#ff4444" "#ff6666" "#ff3333" "#ff5555" "#ff2222" "#ff0000" "#ffffff" "#660000" "#ff3333" "#ff6666" "#ff9999" "#ff4444" "#ff2222" "#ff0000" "#ffffff" "Red"
+    ;;
+  5)
+    apply_theme "#000000" "#bbbbbb" "#121212" "#2a2a2a" "#333333" "#3a3a3a" "#444444" "#555555" "#666666" "#777777" "#888888" "#999999" "#aaaaaa" "#bbbbbb" "#cccccc" "#dddddd" "#eeeeee" "#ffffff" "Dark"
+    ;;
+  *)
+    echo -e "\033[1;31mInvalid Choice!\033[0m"
+    ;;
+esac</pre>
+  </div>
+</section>
  <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -207,6 +293,12 @@
   <footer>
     &copy; 2025 Rishabh | Built with Code & Passion
   </footer>
+  <script>
+    function copyCode() {
+  const code = document.getElementById("termux-script").innerText;
+  navigator.clipboard.writeText(code).then(() => alert("Code copied to clipboard!"));
+}
+  </script>
 
 </body>
 </html>
