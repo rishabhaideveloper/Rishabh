@@ -115,6 +115,7 @@
       box-shadow: 0 0 20px #00ff88;
     }
 
+
     footer {
       background: #111;
       padding: 20px;
@@ -134,8 +135,7 @@
       nav { flex-direction: column; }
       nav a { margin: 10px 0; }
     }
-
-.code-container {
+    .code-container {
   position: relative;
   background-color: #1e1e1e;
   border-radius: 8px;
@@ -161,8 +161,8 @@
 .copy-button:active {
   background: #00ccaa;
 }
-    
-    
+
+
   </style>
 </head>
 <body>
@@ -172,20 +172,19 @@
     <p class="typewriter">|| Futur AI Developer Let's move ||</p>
   </header>
 
-  <div style="max-width: 500px; margin: auto; padding: 10px; background-color: #111; border-radius: 16px; box-shadow: 0 0 20px #00ffee;">
-  <img src="R/image.jpg" alt="Rishabh" style="width: 100%; height: auto; border-radius: 12px;">
-  <p style="text-align: center; color: #00ffee; margin-top: 10px;">⚠︎</p>
+<div style="max-width: 500px; margin: auto; padding: 10px; background-color: #111; border-radius: 16px; box-shadow: 0 0 20px #00ffee;">
+  <img src="image.jpg" alt="Rishabh" style="width: 100%; height: auto; border-radius: 12px;">
+  <p style="text-align: center; color: #00ffee; margin-top: 10px;">Rishabh – The Riper</p>
 </div>
-  
-  
-<section id="about">
+
+  <section id="about">
     <h2>About Me</h2>
     <p>
       I'm Rishabh, a future AI engineer. With strong roots in Kali Linux, OSINT, and smart tech like Jarvis, I'm on a mission to build, break, and rebuild. Curiosity fuels me, code defines me, and cyber is my playground.
     </p>
-</section>
+  </section>
 
-<section id="skills">
+  <section id="skills">
     <h2>I'm Developing Skills In</h2>
     <ul>
       <li>Python, JavaScript (Core)</li>
@@ -194,7 +193,7 @@
       <li>Phishing Tools, OSINT Recon</li>
       <li>AI Tools, Machine Learning (Basics)</li>
     </ul>
- </section>
+  </section>
 
   <section id="projects">
     <h2>Projects</h2>
@@ -216,8 +215,7 @@
         <p>Phone number recon tool with HTML reports and live scan options.</p>
       </div>
     </div>
-  </section>
-</section<section id="script">
+  </section<section id="script">
   <h2>Termux Theme Script</h2>
   <div class="code-container">
     <button class="copy-button" onclick="copyCode()">Copy</button>
@@ -278,6 +276,8 @@ case $ch in
 esac</pre>
   </div>
 </section>
+
+
  <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -294,11 +294,10 @@ esac</pre>
     &copy; 2025 Rishabh | Built with Code & Passion
   </footer>
   <script>
-    function copyCode() {
+function copyCode() {
   const code = document.getElementById("termux-script").innerText;
   navigator.clipboard.writeText(code).then(() => alert("Code copied to clipboard!"));
 }
   </script>
-
 </body>
 </html>
