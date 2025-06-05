@@ -8,168 +8,169 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d0d;
-      color: #e0e0e0;
-      overflow-x: hidden;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0d0d0d;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  font-size: 15px;
+}
 
-    header {
-      background: #0f0f0f;
-      padding: 80px 20px 60px;
-      text-align: center;
-      border-bottom: 3px solid #00ff88;
-    }
+header {
+  background: #0f0f0f;
+  padding: 50px 15px 40px;
+  text-align: center;
+  border-bottom: 3px solid #00ff88;
+}
 
 header h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3.2em;
+  font-size: 2.2em;
   color: #00ff88;
-  text-shadow: 0 0 10px #00ff88;
+  text-shadow: 0 0 8px #00ff88;
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-    .typewriter {
-      font-size: 1.2em;
-      color: #aaa;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid #00ff88;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
-    }
+.typewriter {
+  font-size: 1em;
+  color: #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #00ff88;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
+}
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 260px; }
-    }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 220px; }
+}
 
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    
-    @keyframes glow {
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes glow {
   from { text-shadow: 0 0 10px #00ff88; }
   to { text-shadow: 0 0 20px #00ffaa, 0 0 30px #00ffaa; }
 }
- 
-    nav {
-      background: #111;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      border-bottom: 2px solid #00ff88;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
 
-    nav a {
-      color: #00ff88;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+nav {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #00ff88;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    nav a:hover {
-      color: white;
-      text-shadow: 0 0 10px #00ff88;
-    }
+nav a {
+  color: #00ff88;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 0.95em;
+}
 
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+nav a:hover {
+  color: white;
+  text-shadow: 0 0 10px #00ff88;
+}
 
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #00ff88;
-      text-shadow: 0 0 8px #00ff88;
-    }
+section {
+  padding: 40px 15px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    section p, ul {
-      font-size: 1em;
-      line-height: 1.7em;
-      color: #ccc;
-    }
+section h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #00ff88;
+  text-shadow: 0 0 6px #00ff88;
+}
 
-    ul li {
-      margin-bottom: 10px;
-    }
+section p, ul {
+  font-size: 0.95em;
+  line-height: 1.6em;
+  color: #ccc;
+}
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+ul li {
+  margin-bottom: 8px;
+}
 
-    .project-card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-left: 5px solid #00ff88;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px #00ff8844;
-    }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
 
-    .project-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px #00ff88;
-    }
+.project-card {
+  background: #1a1a1a;
+  padding: 15px;
+  border-left: 4px solid #00ff88;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 8px #00ff8844;
+  font-size: 0.9em;
+}
 
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 16px #00ff88;
+}
 
-    footer {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-      color: #777;
-      border-top: 2px solid #00ff88;
-      font-size: 0.9em;
-    }
+footer {
+  background: #111;
+  padding: 15px;
+  text-align: center;
+  color: #777;
+  border-top: 2px solid #00ff88;
+  font-size: 0.85em;
+}
 
-    a {
-      color: #00ff88;
-    }
+a {
+  color: #00ff88;
+}
 
-    @media(max-width: 600px) {
-      header h1 { font-size: 2em; }
-      .typewriter { font-size: 1em; }
-      nav { flex-direction: column; }
-      nav a { margin: 10px 0; }
-    }
-    
+@media(max-width: 600px) {
+  header h1 { font-size: 1.7em; }
+  .typewriter { font-size: 0.9em; }
+  nav { flex-direction: column; }
+  nav a { margin: 8px 0; }
+}
+
 .code-container {
   position: relative;
   background-color: #1e1e1e;
   border-radius: 8px;
-  padding: 20px;
+  padding: 16px;
   overflow-x: auto;
-  margin-top: 40px;
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+  margin-top: 30px;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.2);
+  font-size: 0.85em;
 }
 
 .copy-button {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   background: #00ffcc;
   color: #000;
   border: none;
-  padding: 6px 12px;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .copy-button:active {
   background: #00ccaa;
-}
-   
-
+  }
 
   </style>
 </head>
