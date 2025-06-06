@@ -499,6 +499,15 @@ function copyCode() {
   const code = document.getElementById("termux-script").innerText;
   navigator.clipboard.writeText(code).then(() => alert("Code copied to clipboard!"));
 }
+  
+function copyJarvis() {
+  const code = document.getElementById("jarvis-script").innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    alert("Jarvis script copied to clipboard!");
+  }).catch(err => {
+    alert("Failed to copy text: " + err);
+  });
+  }
 
 </script>
   </script>
