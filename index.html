@@ -6,7 +6,7 @@
   <title>Rishabh Kumar Yadav</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -170,7 +170,38 @@ a {
 
 .copy-button:active {
   background: #00ccaa;
-  }
+}
+  
+.code-container {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 16px;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 20px #00ffaa44;
+  position: relative;
+  overflow-x: auto;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #00ffc8;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.keyword { color: #569cd6; font-weight: bold; }
+.string { color: #ce9178; }
+.comment { color: #6a9955; font-style: italic; }
+.number  { color: #b5cea8; }
+.built-in { color: #4fc1ff; }
+
 
   </style>
 </head>
@@ -178,8 +209,8 @@ a {
 
   <header>
     <h1>Rishabh Kumar Yadav</h1>
-    <p class="typewriter">||Future AI Developer|| Let's move ||</p>
-  </header> <div style="max-width: 280px; margin: 30px auto; padding: 10px; background-color: #111; border-radius: 16px; box-shadow: 0 0 18px #00ffee; text-align: center;">
+    <p class="typewriter">|| Futur AI Developer Let's move ||</p>
+  </header> <div style="max-width: 350px; margin: 30px auto; padding: 10px; background-color: #111; border-radius: 16px; box-shadow: 0 0 18px #00ffee; text-align: center;">
     <img src="image.jpg" alt="Rishabh" style="width: 100%; border-radius: 12px; box-shadow: 0 0 10px #00ffee;">
     <p style="color: #00ffee; margin-top: 8px; font-size: 16px;">Rishabh – The Riper</p>
   </div>
@@ -223,7 +254,7 @@ a {
       </div>
     </div>
   </section<section id="script">
-  <h2>Terminal Theme Script</h2>
+  <h2>Termux Theme Script</h2>
   <div class="code-container">
     <button class="copy-button" onclick="copyCode()">Copy</button>
     <pre id="termux-script">#!/bin/bash
@@ -284,27 +315,126 @@ esac</pre>
   </div>
 </section>
 
+<section id="jarvis-python">
+  <h2>JARVIS Python Script</h2>
+  <p>Replace Rishabh to your name</p>
+  <div class="code-container">
+    <button class="copy-button" onclick="copyJarvis()">Copy</button>
+    <pre id="jarvis-script"><code>
+<div class="code-container">
+  <pre><code>
+<span class="keyword">import</span> pyttsx3
+<span class="keyword">import</span> speech_recognition <span class="keyword">as</span> sr
+<span class="keyword">import</span> datetime
+<span class="keyword">import</span> wikipedia
+<span class="keyword">import</span> webbrowser
+<span class="keyword">import</span> pywhatkit
+<span class="keyword">import</span> psutil
 
- <nav>
+engine = pyttsx3.init()
+engine.setProperty(<span class="string">'rate'</span>, <span class="number">170</span>)
+
+<span class="keyword">def</span> speak(text):
+    engine.say(text)
+    engine.runAndWait()
+
+<span class="keyword">def</span> wish():
+    hour = datetime.datetime.now().hour
+    <span class="keyword">if</span> <span class="number">0</span> <= hour < <span class="number">12</span>:
+        speak(<span class="string">"Good morning Rishabh!"</span>)
+    <span class="keyword">elif</span> <span class="number">12</span> <= hour < <span class="number">18</span>:
+        speak(<span class="string">"Good afternoon Rishabh!"</span>)
+    <span class="keyword">else</span>:
+        speak(<span class="string">"Good evening Rishabh!"</span>)
+    speak(<span class="string">"I am Jarvis. How can I help you?"</span>)
+
+<span class="keyword">def</span> take_command():
+    r = sr.Recognizer()
+    <span class="keyword">with</span> sr.Microphone() <span class="keyword">as</span> source:
+        <span class="builtin">print</span>(<span class="string">"Listening..."</span>)
+        audio = r.listen(source)
+    <span class="keyword">try</span>:
+        <span class="builtin">print</span>(<span class="string">"Recognizing..."</span>)
+        query = r.recognize_google(audio, language=<span class="string">'en-in'</span>)
+        <span class="builtin">print</span>(f<span class="string">"You said: {query}"</span>)
+    <span class="keyword">except</span>:
+        speak(<span class="string">"Sorry, say that again."</span>)
+        <span class="keyword">return</span> <span class="string">""</span>
+    <span class="keyword">return</span> query.lower()
+
+<span class="keyword">def</span> battery_status():
+    battery = psutil.sensors_battery()
+    percent = battery.percent
+    speak(f<span class="string">"Battery is at {percent} percent."</span>)
+
+<span class="keyword">def</span> run_jarvis():
+    wish()
+    <span class="keyword">while</span> <span class="boolean">True</span>:
+        query = take_command()
+
+        <span class="keyword">if</span> <span class="string">'wikipedia'</span> <span class="keyword">in</span> query:
+            speak(<span class="string">'Searching Wikipedia...'</span>)
+            query = query.replace(<span class="string">"wikipedia"</span>, <span class="string">""</span>)
+            result = wikipedia.summary(query, sentences=<span class="number">2</span>)
+            speak(<span class="string">"According to Wikipedia"</span>)
+            speak(result)
+
+        <span class="keyword">elif</span> <span class="string">'open youtube'</span> <span class="keyword">in</span> query:
+            webbrowser.open(<span class="string">"https://youtube.com"</span>)
+
+        <span class="keyword">elif</span> <span class="string">'open google'</span> <span class="keyword">in</span> query:
+            webbrowser.open(<span class="string">"https://google.com"</span>)
+
+        <span class="keyword">elif</span> <span class="string">'search'</span> <span class="keyword">in</span> query:
+            query = query.replace(<span class="string">"search"</span>, <span class="string">""</span>)
+            pywhatkit.search(query)
+            speak(<span class="string">"Here are your search results."</span>)
+
+        <span class="keyword">elif</span> <span class="string">'play'</span> <span class="keyword">in</span> query:
+            song = query.replace(<span class="string">'play'</span>, <span class="string">''</span>)
+            pywhatkit.playonyt(song)
+            speak(f<span class="string">"Playing {song} on YouTube."</span>)
+
+        <span class="keyword">elif</span> <span class="string">'time'</span> <span class="keyword">in</span> query:
+            time = datetime.datetime.now().strftime(<span class="string">"%I:%M %p"</span>)
+            speak(f<span class="string">"Time is {time}"</span>)
+
+        <span class="keyword">elif</span> <span class="string">'battery'</span> <span class="keyword">in</span> query:
+            battery_status()
+
+        <span class="keyword">elif</span> <span class="string">'exit'</span> <span class="keyword">in</span> query <span class="keyword">or</span> <span class="string">'bye'</span> <span class="keyword">in</span> query:
+            speak(<span class="string">"Goodbye Rishabh. Take care!"</span>)
+            <span class="keyword">break</span>
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    run_jarvis()
+</code>
+</pre>
+</div>
+</section>
+
+<nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-  </nav>
-  
-  <section id="contact">
+</nav>
+
+<section id="contact">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:rishabhaideveloper@gmail.com">rishabhaideveloper@gmail.com</a></p>
-  </section>
+</section>
 
-  <footer>
+<footer>
     &copy; 2025 Rishabh | Built with Code & 🩷
-  </footer>
-  <script>
+</footer>
+<script>
 function copyCode() {
   const code = document.getElementById("termux-script").innerText;
   navigator.clipboard.writeText(code).then(() => alert("Code copied to clipboard!"));
 }
+
+</script>
   </script>
 </body>
 </html>
